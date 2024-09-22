@@ -1,0 +1,17 @@
+{
+  "name": "landmark-90.5-fm-news",
+  "version": "1.0.0",
+  "description": "news website develop by varletint",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "dev": " nodemon api/index",
+    "start": " node api/index"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mongoose": "^8.6.2",
+    "nodemon": "^3.1.4"
+  }
+}

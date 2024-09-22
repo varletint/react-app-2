@@ -1,12 +1,22 @@
 import { useState } from "react";
+import Home from "./pages/Home";
+import Header from "./components/Header";
+import { Route, Routes, BrowserRouter } from "react-router-dom";
 
 import "./App.css";
+import PostPage from "./pages/PostPage";
+import Footer from "./components/Footer";
 
 function App() {
   return (
-    <>
-      <h1>Hell no!!!</h1>
-    </>
+    <BrowserRouter>
+      <Header />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/post/:postSlug' element={<PostPage />} />
+      </Routes>
+      <Footer />
+    </BrowserRouter>
   );
 }
 
