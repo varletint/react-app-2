@@ -31,11 +31,13 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1.0' />
         <title>Vite + React</title>
       </Helmet>
-      <div className='container'>
-        <div className='news-card-grid'>
-          {posts.map((post) => (
-            <NewsCard key={post._id} post={post} />
-          ))}
+      <div className='body'>
+        <div className='container'>
+          <div className='news-card-grid'>
+            {posts.map((post) => (
+              <NewsCard key={post._id} post={post} />
+            ))}
+          </div>
         </div>
       </div>
     </>
