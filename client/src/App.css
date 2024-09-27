@@ -64,7 +64,7 @@ body {
 }
 
 .desktop-nav {
-  display: none;
+  display: flex;
   /* background: #325678; */
   padding: 2rem 1rem;
   height: 10vh;

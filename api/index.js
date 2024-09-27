@@ -3,6 +3,7 @@
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import express from "express";
+import cors from "cors";
 
 // Importing local Routes
 import postRoutes from "./routes/post.route.js";
@@ -15,6 +16,12 @@ app.use(express.json());
 // configuring Dotenv
 
 dotenv.config();
+
+app.use(
+  cors({
+    origin: "*",
+  })
+);
 
 // Connecting to the Database
 mongoose
