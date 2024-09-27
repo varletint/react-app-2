@@ -19,7 +19,9 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "*",
+    origin: "https://react-app-2-tau.vercel.app/",
+    credentials: true,
+    methods: ["GET", "POST", "PUT", "DELETE"],
   })
 );
 
