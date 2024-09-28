@@ -17,13 +17,13 @@ app.use(express.json());
 
 dotenv.config();
 
-app.use(
-  cors({
-    origin: "https://react-app-2-tau.vercel.app/",
-    credentials: true,
-    methods: ["GET", "POST", "PUT", "DELETE"],
-  })
-);
+// app.use(
+//   cors({
+//     origin: "https://react-app-2-tau.vercel.app/",
+//     credentials: true,
+//     methods: ["GET", "POST", "PUT", "DELETE"],
+//   })
+// );
 
 // Connecting to the Database
 mongoose
@@ -36,7 +36,7 @@ mongoose
   });
 
 //   Server connection
-app.listen(3030, () => {
+app.listen("https://backekend.vercel.app/", () => {
   console.log("The server is running at port 3030");
 });
 
