@@ -4,13 +4,14 @@ import NewsCard from "../components/NewsCard";
 
 export default function Home() {
   const [posts, setPosts] = useState([]);
+  console.log(posts);
 
   console.log(posts);
 
   useEffect(() => {
     const fetchPost = async () => {
       try {
-        const res = await fetch("/api/post/getposts");
+        const res = await fetch("http://localhost:3030/api/post/getposts");
         const data = await res.json();
 
         if (res.ok) {

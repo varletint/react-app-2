@@ -19,11 +19,15 @@ dotenv.config();
 
 // app.use(
 //   cors({
-//     origin: "https://react-app-2-tau.vercel.app/",
+//     origin: "https://vltmedia.onrender.com",
 //     credentials: true,
 //     methods: ["GET", "POST", "PUT", "DELETE"],
 //   })
 // );
+
+app.use(cors());
+
+// Your API routes go here...
 
 // Connecting to the Database
 mongoose
@@ -36,7 +40,7 @@ mongoose
   });
 
 //   Server connection
-app.listen("https://backekend.vercel.app/", () => {
+app.listen(3030, () => {
   console.log("The server is running at port 3030");
 });
 
