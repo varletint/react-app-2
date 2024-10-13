@@ -1,0 +1,12 @@
+* {
+  box-sizing: border-box;
+}
+footer {
+  display: flex;
+  background: #333;
+  color: #f3f3f3;
+  height: max-content;
+  justify-content: space-around;
+  align-items: center;
+  padding: 1rem;
+}

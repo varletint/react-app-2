@@ -24,8 +24,10 @@ export default function PostPage() {
     fetchPost();
   }, [postSlug]);
   return (
-    <main>
-      <div dangerouslySetInnerHTML={{ __html: post && post.content }}></div>
-    </main>
+    <section className='postpage bg-red-200'>
+      <main>
+        <div dangerouslySetInnerHTML={{ __html: post && post.content }}></div>
+      </main>
+    </section>
   );
 }

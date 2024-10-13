@@ -1,0 +1,25 @@
+.postpage {
+  width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  max-width: 78rem;
+  color: #3f3e3e;
+}
+
+@media (min-width: 1024px) {
+  /* .postpage {
+    max-width: 70rem;
+  } */
+}
+@media (min-width: 600px) {
+  .postpage {
+    padding: 3rem;
+  }
+}
+
+@media (min-width: 360px) {
+  .postpage {
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
+}
