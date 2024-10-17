@@ -9,6 +9,8 @@ import "./Footer.css";
 import "./postpage.css";
 import PostPage from "./pages/PostPage";
 import Footer from "./components/Footer";
+import PassQuestionsPage from "./pages/PassQuestionsPage";
+import Dashboard from "./pages/Dashboard";
 
 function App() {
   return (
@@ -16,7 +18,8 @@ function App() {
       <Header />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/post/:postSlug' element={<PostPage />} />
+        <Route path='/questions' element={<PassQuestionsPage />} />
+        <Route path='/dashboard' element={<Dashboard />} />
       </Routes>
       <Footer />
     </BrowserRouter>

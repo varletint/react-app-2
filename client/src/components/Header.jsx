@@ -25,7 +25,9 @@ export default function Header() {
                 <a href='#about'>About</a>
               </li>
               <li>
-                <a href='#about'>About</a>
+                <a href='/dashboard' onClick={toggleMenu}>
+                  Dashboard
+                </a>
               </li>
             </ul>
           </div>
@@ -55,8 +57,8 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a href='#' onClick={toggleMenu}>
-                  About
+                <a href='/dashboard' onClick={toggleMenu}>
+                  Dashboard
                 </a>
               </li>
             </ul>
