@@ -1,26 +1,64 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import QuestionCard from "../components/QuestionCard";
 
 export default function PassQuestionsPage() {
+  const [peqies, setPeqies] = useState([]);
+
+  useEffect(() => {
+    const fetchPeqies = async () => {
+      try {
+        const res = await fetch("/api/post/getpeqs");
+        const data = await res.json();
+
+        if (!res.ok) {
+          alert("Bad request");
+        }
+        if (res.ok) {
+          setPeqies(data.peqs);
+        }
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    fetchPeqies();
+  }, [peqies.peqs]);
+  // console.log();
+
   return (
-    <div className=' questions-page-container'>
+    <div className=' questions-page-container bg-white'>
+      <div className='bg-[#797777]'></div>
       <div className='search-div '>
         <form onSubmit className='search-form-div font-semibold'>
           <div className=' search-form-div-items'>
-            <label> Department: </label>
+            {/* <label> Department: </label>
             <input type='text' id='Dept' placeholder='Search...' />
           </div>
           <div className='search-form-div-items'>
-            <label> Course Code </label>
-            <input type='text' id='courseCode' placeholder='Search...' />
+            <label> Course Code </label> */}
+            <input
+              type='text'
+              id='courseCode'
+              placeholder='Search...'
+              className='input-text'
+            />
           </div>
-          <button className='btn'>Search</button>
+          <button className='btn btn-search hidden md:block'>Search</button>
         </form>
       </div>
-      <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 '>
-        <div className='questions-grid'>
-          <QuestionCard />
-        </div>
+      <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
+        {peqies && peqies.length > 0 && (
+          <div className=''>
+            <div className=''>
+              <h1 className='text-center mb-8 font-semibold text-xl'>
+                Recent pEqs
+              </h1>
+            </div>
+            <div className='questions-grid'>
+              {peqies.length > 0 &&
+                peqies.map((peq) => <QuestionCard key={peq._id} peq={peq} />)}
+            </div>
+          </div>
+        )}
       </div>
     </div>
     // <div className=' questions-page-container'>
