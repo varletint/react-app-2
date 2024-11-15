@@ -16,17 +16,19 @@ import CreatePeqie from "./pages/CreatePeqie";
 
 function App() {
   return (
-    <BrowserRouter>
-      <Header />
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/questions' element={<PassQuestionsPage />} />
-        <Route path='/dashboard' element={<Dashboard />} />
-        <Route path='/sign-in' element={<SignIn />} />
-        <Route path='/createPeqie' element={<CreatePeqie />} />
-      </Routes>
-      <Footer />
-    </BrowserRouter>
+    <>
+      <BrowserRouter>
+        <Header />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/questions' element={<PassQuestionsPage />} />
+          <Route path='/dashboard' element={<Dashboard />} />
+          <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/createPeqie' element={<CreatePeqie />} />
+        </Routes>
+        <Footer />
+      </BrowserRouter>
+    </>
   );
 }
 

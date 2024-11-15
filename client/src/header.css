@@ -24,7 +24,8 @@ nav {
   /* background: #f8f8; */
   align-items: center;
   min-height: 10vh;
-  box-shadow: 0 0.3rem 0.4rem rgb(226, 225, 225);
+  /* box-shadow: 0 0.3rem 0.4rem rgb(226, 225, 225); */
+  z-index: 1000;
 }
 .big-logo,
 .logo,

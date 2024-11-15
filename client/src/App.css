@@ -490,3 +490,18 @@ section {
   border-radius: 05rem;
   margin-bottom: 2rem;
 }
+
+.modal {
+  animation: topDrop 0.3s linear;
+}
+
+@keyframes topDrop {
+  0% {
+    transform: translateY(-100%) scale(0);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%) scale(1);
+    opacity: 1;
+  }
+}
