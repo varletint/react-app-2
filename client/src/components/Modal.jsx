@@ -5,23 +5,28 @@ import React from "react";
 
 export default function Modal({ open, children, onClose }) {
   if (!open) return null;
-  return (
+  return ReactDOM.createPortal(
     <div
       className='fixed bg-[rgb(0,0,0,.6)]
   top-0 left-0 right-0 bottom-0 flex items-center justify-center
-   '>
+   '
+      onClick={onClose}>
       <div
         className=' modal relative bg-white 
-      px-3 py-2 w-[22rem] md:w-[32rem] rounded-xl'>
-        <button
-          onClick={onClose}
-          className=' absolute top-[10] right-[10]
-         border-b '>
-          <CancelSquareIcon />
-        </button>
+       w-[22rem] md:w-[32rem]
+       p-6 rounded-xl'>
+        <div className='w-full border-b text-right '>
+          <button
+            onClick={onClose}
+            className=' top-[10] right-[10] bg-[#333]
+ text-white rounded-md    mb-3       '>
+            <CancelSquareIcon className='w-[1.8rem] h-[1.8rem]' />
+          </button>
+        </div>
         {children}
       </div>
-    </div>
+    </div>,
+    document.getElementById("portal")
   );
 }
 

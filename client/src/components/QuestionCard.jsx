@@ -1,11 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import img1 from "../images/Q1.jpeg";
+import Modal from "./Modal";
 
-export default function QuestionCard({ peq }) {
+export default function QuestionCard({ peq, get }) {
+  const [openModal, setOpenModal] = useState(false);
   return (
     <>
-      <div className='question-card shadow-md '>
+      <div className='question-card shadow-md  ' onClick={get}>
         <div className='question-content'>
           <Link className='course-detail'>
             <p className='course-title uppercase'>{peq.courseTitle}</p>

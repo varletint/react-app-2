@@ -1,8 +1,18 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "../components/QuestionCard";
+import Modal from "../components/Modal";
+import { set } from "mongoose";
 
 export default function PassQuestionsPage() {
   const [peqies, setPeqies] = useState([]);
+  const [imageUrl, setImageUrl] = useState("");
+  console.log(imageUrl);
+  const [isOpen, setIsOpen] = useState(false);
+
+  const setAll = () => {
+    setIsOpen(true);
+    setImageUrl(peq.image);
+  };
 
   useEffect(() => {
     const fetchPeqies = async () => {
@@ -25,42 +35,60 @@ export default function PassQuestionsPage() {
   // console.log();
 
   return (
-    <div className=' questions-page-container bg-white'>
-      <div className='bg-[#797777]'></div>
-      <div className='search-div '>
-        <form onSubmit className='search-form-div font-semibold'>
-          <div className=' search-form-div-items'>
-            {/* <label> Department: </label>
+    <>
+      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+        <div className=''>
+          {imageUrl && (
+            <img src={imageUrl} alt='' className=' max-h-[80vh] w-auto' />
+          )}
+        </div>
+      </Modal>
+      <div className=' questions-page-container bg-white'>
+        <div className='bg-[#797777]'></div>
+        <div className='search-div '>
+          <form onSubmit className='search-form-div font-semibold'>
+            <div className=' search-form-div-items'>
+              {/* <label> Department: </label>
             <input type='text' id='Dept' placeholder='Search...' />
           </div>
           <div className='search-form-div-items'>
             <label> Course Code </label> */}
-            <input
-              type='text'
-              id='courseCode'
-              placeholder='Search...'
-              className='input-text'
-            />
-          </div>
-          <button className='btn btn-search hidden md:block'>Search</button>
-        </form>
-      </div>
-      <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
-        {peqies && peqies.length > 0 && (
-          <div className=''>
+              <input
+                type='text'
+                id='courseCode'
+                placeholder='Search...'
+                className='input-text'
+              />
+            </div>
+            <button className='btn btn-search hidden md:block'>Search</button>
+          </form>
+        </div>
+        <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
+          {peqies && peqies.length > 0 && (
             <div className=''>
-              <h1 className='text-center mb-8 font-semibold text-xl'>
-                Recent pEqs
-              </h1>
+              <div className=''>
+                <h1 className='text-center mb-8 font-semibold text-xl'>
+                  Recent pEqs
+                </h1>
+              </div>
+              <div className='questions-grid'>
+                {peqies.length > 0 &&
+                  peqies.map((peq) => (
+                    <QuestionCard
+                      key={peq._id}
+                      peq={peq}
+                      get={() => {
+                        setImageUrl(peq.image), setIsOpen(true);
+                      }}
+                    />
+                  ))}
+              </div>
             </div>
-            <div className='questions-grid'>
-              {peqies.length > 0 &&
-                peqies.map((peq) => <QuestionCard key={peq._id} peq={peq} />)}
-            </div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
-    </div>
+    </>
+
     // <div className=' questions-page-container'>
     //   <div className=' bg-red-500 search-div'>
     //     <form onSubmit className='search-form-div'>

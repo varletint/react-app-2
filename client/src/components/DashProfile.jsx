@@ -122,7 +122,7 @@ export default function DashProfile() {
 
               <Modal open={isOpen} onClose={() => setIsOpen(false)}>
                 <form
-                  className=' mt-10
+                  className=' mt-6
         flex flex-col  gap-5'
                   onSubmit={handleSubmit}>
                   <div className=' flex flex-col  gap-5 justify-between'>
