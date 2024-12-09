@@ -24,16 +24,16 @@ export default function Header() {
                 <a href='#'>About</a>
               </li>
               <li>
-                <a href='/sign-in'>Sign In</a>
+                <a href='/'>Sign In</a>
               </li>
               <li>
-                <a href='/dashboard?tab=profile'>Profile</a>
+                <a href='/'>Profile</a>
               </li>
             </ul>
           </div>
         </nav>
         <nav id='hamburger-nav'>
-          <div className='logo underline underline-offset-[-23px]'>pEq</div>
+          <Link className='logo underline underline-offset-[-23px]'>pEq</Link>
           <div className='hamburger-menu'>
             <div className='hamburger-icon' onClick={toggleMenu}>
               <span></span>
@@ -52,12 +52,12 @@ export default function Header() {
                 </a>
               </li>
               <li>
-                <a href='/sign-in' onClick={toggleMenu} className='text-nowrap'>
+                <a href='/' onClick={toggleMenu} className='text-nowrap'>
                   Sign In
                 </a>
               </li>
               <li>
-                <a href='/dashboard?tab=profile' onClick={toggleMenu}>
+                <a href='/' onClick={toggleMenu}>
                   Profile
                 </a>
               </li>
