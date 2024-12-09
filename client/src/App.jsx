@@ -6,7 +6,6 @@ import { Route, Routes, BrowserRouter, useLocation } from "react-router-dom";
 import "./App.css";
 import "./header.css";
 import "./Footer.css";
-import "./postpage.css";
 import Footer from "./components/Footer";
 import PassQuestionsPage from "./pages/PassQuestionsPage";
 import Dashboard from "./pages/Dashboard";
