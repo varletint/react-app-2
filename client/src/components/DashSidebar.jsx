@@ -12,7 +12,7 @@ import {
 
 export default function DashSidebar() {
   return (
-    <div className='sidebar hidden md:flex'>
+    <div className='sidebar hidden'>
       <div className='sidebar-item-group'>
         <Link to={"/dashboard?tab=profile"}>
           <div className='sidebar-item tooltip'>

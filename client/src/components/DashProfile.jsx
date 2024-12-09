@@ -16,6 +16,7 @@ export default function DashProfile() {
   const [imageUploadProgress, setImageUploadProgress] = useState(null);
   const [imageUploadError, setImageUploadError] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
 
   const handleUploadImage = async (e) => {
     e.preventDefault();

@@ -7,10 +7,9 @@ export default function Modal({ open, children, onClose }) {
   if (!open) return null;
   return ReactDOM.createPortal(
     <div
-      className='fixed bg-[rgb(0,0,0,.6)]
+      className='fixed bg-[rgb(0,0,0,.6)] p-2
   top-0 left-0 right-0 bottom-0 flex items-center justify-center
-   '
-      onClick={onClose}>
+   '>
       <div
         className=' modal relative bg-white 
        w-[22rem] md:w-[32rem]

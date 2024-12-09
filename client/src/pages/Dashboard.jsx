@@ -10,6 +10,7 @@ export default function Dashboard() {
   useEffect(() => {
     const tabParams = new URLSearchParams(location.search);
     const tabFromUrl = tabParams.get("tab");
+    console.log(tabFromUrl);
 
     if (tabFromUrl) {
       setTab(tabFromUrl);

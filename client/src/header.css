@@ -63,7 +63,7 @@ a {
   transition: all 300ms ease-in-out;
 }
 li a:hover {
-  text-decoration: underline;
+  /* text-decoration: underline; */
   text-underline-offset: 1rem;
 }
 
@@ -106,7 +106,12 @@ li a:hover {
   font-weight: 530;
   text-align: justify;
   text-decoration: none;
+}
+.menu-links li {
   border-bottom: 1px solid #c4c1c1;
+}
+.menu-links li:last-child {
+  border-bottom: none;
 }
 
 .menu-links.open {
