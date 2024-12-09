@@ -1,7 +1,7 @@
 {
   "name": "peqie",
   "version": "1.0.0",
-  "description": "news website develop by varletint",
+  "description": "Exam questios website develop by varletint",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -9,6 +9,9 @@
     "start": " node api/index",
     "build": " npm install && npm install --prefix client && npm run build --prefix client"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
