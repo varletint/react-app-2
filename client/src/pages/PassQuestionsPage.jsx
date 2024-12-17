@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import QuestionCard from "../components/QuestionCard";
-import Modal from "../components/Modal";
+// import Modal from "../components/Modal";
+import PicturePreviewModal from "../components/PicturePreviewModal";
 import { set } from "mongoose";
 
 export default function PassQuestionsPage() {
@@ -36,18 +37,26 @@ export default function PassQuestionsPage() {
 
   return (
     <>
-      <Modal open={isOpen} onClose={() => setIsOpen(false)}>
+      <PicturePreviewModal open={isOpen} onClose={() => setIsOpen(false)}>
         <div className=''>
           {imageUrl && (
             <img src={imageUrl} alt='' className=' max-h-[80vh] w-auto' />
           )}
         </div>
-      </Modal>
-      <div className=' questions-page-container bg-white'>
-        <div className='bg-[#797777]'></div>
-        <div className='search-div '>
+      </PicturePreviewModal>
+      {/* <div className=' questions-page-container bg-white'>
+        <div className='bg-[#797777]'></div> */}
+      {/* <div className='search-div '>
           <form onSubmit className='search-form-div font-semibold'>
-            <div className=' search-form-div-items'>
+          <div className=' search-form-div-items'> */}
+      <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
+        <div className='bg-[#797777]'></div>
+        <div className=' w-full sticky top-0 z-10 shadow-lg'>
+          <form
+            onSubmit
+            className=' flex flex-row 
+           px-2'>
+            <div className=' w-[100%]'>
               {/* <label> Department: </label>
             <input type='text' id='Dept' placeholder='Search...' />
           </div>
@@ -60,7 +69,11 @@ export default function PassQuestionsPage() {
                 className='input-text'
               />
             </div>
-            <button className='btn btn-search hidden md:block'>Search</button>
+            <button
+              className='bg-[#333] w-[100px] text-white font-semibold
+             '>
+              Search
+            </button>
           </form>
         </div>
         <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>

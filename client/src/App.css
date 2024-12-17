@@ -216,7 +216,7 @@ body {
 
 section {
   min-height: 80vh;
-  max-width: 72rem;
+  max-width: 48rem;
   margin-right: auto;
   margin-left: auto;
   padding: 0.9rem;
@@ -260,7 +260,7 @@ section {
   border: none;
 }
 .btn:hover {
-  background: #444;
+  background: #111;
   color: #fff;
   /* box-shadow: 0 0.3rem 0.4rem rgb(194, 193, 193); */
 }
@@ -344,19 +344,25 @@ section {
 }
 .input-text {
   height: 2.4rem;
-  /* width: 50%; */
+  width: 100%;
   outline: none;
-  box-shadow: 0 0.1rem 0.1rem rgb(194, 193, 193);
-  transition: all 300ms ease-out;
+  /* border-radius: 2rem; */
+  /* box-shadow: 0 0.1rem 0.1rem rgb(194, 193, 193); */
+  transition: all 300ms ease-in;
 }
 .input-text:focus {
-  box-shadow: 0 0.3rem 0.4rem rgb(194, 193, 193);
+  /* box-shadow: 0 0.3rem 0.4rem rgb(194, 193, 193); */
+  border: 1px solid #333;
 }
 .input-text[type] {
-  padding: 5px;
+  padding: 23px 30px;
   color: #333;
-  background: #97969641;
-  border-bottom: 2px solid #333;
+  /* background: #97969641; */
+  background: #fff;
+
+  border-right: 1px solid #333;
+  border-left: 1px solid #333;
+  border-bottom: 1px solid #333;
 }
 .input-file::-webkit-file-upload-button {
   visibility: hidden;
