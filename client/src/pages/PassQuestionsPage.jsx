@@ -7,8 +7,10 @@ import { set } from "mongoose";
 export default function PassQuestionsPage() {
   const [peqies, setPeqies] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
-  console.log(imageUrl);
   const [isOpen, setIsOpen] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
+
+  // console.log(imageUrl);
 
   const setAll = () => {
     setIsOpen(true);
@@ -18,6 +20,7 @@ export default function PassQuestionsPage() {
   useEffect(() => {
     const fetchPeqies = async () => {
       try {
+        setIsLoading(true);
         const res = await fetch("/api/post/getpeqs");
         const data = await res.json();
 
@@ -25,15 +28,18 @@ export default function PassQuestionsPage() {
           alert("Bad request");
         }
         if (res.ok) {
-          setPeqies(data.peqs);
+          const timeout = setTimeout(() => {
+            setPeqies(data.peqs);
+            setIsLoading(false);
+          }, 3000);
         }
+        clearTimeout(timeout);
       } catch (error) {
         console.log(error.message);
       }
     };
     fetchPeqies();
   }, [peqies.peqs]);
-  // console.log();
 
   return (
     <>
@@ -76,7 +82,40 @@ export default function PassQuestionsPage() {
             </button>
           </form>
         </div>
-        <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
+        {isLoading ? (
+          <>
+            <div
+              className='min-h-screen mx-auto max-w-3xl  flex justify-center
+            items-center'>
+              <p className=' text-xl font-mono'>Loading...</p>
+            </div>
+          </>
+        ) : (
+          <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
+            {peqies && peqies.length > 0 && (
+              <div className=''>
+                <div className=''>
+                  <h1 className='text-center mb-8 font-semibold text-xl'>
+                    Recent pEqs
+                  </h1>
+                </div>
+                <div className='questions-grid'>
+                  {peqies.length > 0 &&
+                    peqies.map((peq) => (
+                      <QuestionCard
+                        key={peq._id}
+                        peq={peq}
+                        get={() => {
+                          setImageUrl(peq.image), setIsOpen(true);
+                        }}
+                      />
+                    ))}
+                </div>
+              </div>
+            )}
+          </div>
+        )}
+        {/* <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
           {peqies && peqies.length > 0 && (
             <div className=''>
               <div className=''>
@@ -98,7 +137,7 @@ export default function PassQuestionsPage() {
               </div>
             </div>
           )}
-        </div>
+        </div> */}
       </div>
     </>
 
