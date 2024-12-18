@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import { CancelSquareIcon } from "hugeicons-react";
+import { Cancel01Icon } from "hugeicons-react";
 
 import React from "react";
 
@@ -8,7 +8,7 @@ export default function Modal({ open, children, onClose }) {
   return ReactDOM.createPortal(
     <div
       className='fixed bg-[rgb(0,0,0,.6)] p-2
-  top-0 left-0 right-0 bottom-0 flex items-center justify-center
+  top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[100]
    '>
       <div
         className=' modal relative bg-white 
@@ -17,9 +17,9 @@ export default function Modal({ open, children, onClose }) {
         <div className='w-full border-b text-right '>
           <button
             onClick={onClose}
-            className=' top-[10] right-[10] bg-[#333]
- text-white rounded-md    mb-3       '>
-            <CancelSquareIcon className='w-[1.8rem] h-[1.8rem]' />
+            className='  top-[-12%] left-[20rem] right-[10] 
+ text-[#333] rounded-md      z-10   mb-8 '>
+            <Cancel01Icon className='w-[1.8rem] h-[1.8rem]' />
           </button>
         </div>
         {children}

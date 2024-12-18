@@ -183,11 +183,12 @@ body {
 
 .tooltip {
   position: relative;
-  display: inline-block;
+  display: block;
   cursor: pointer;
 }
 
 .tooltip .tooltiptext {
+  display: none;
   font-size: 0.9rem;
   visibility: hidden;
   width: 6rem;
@@ -199,10 +200,10 @@ body {
   border-radius: 4rem;
   padding: 5px 8px;
   position: absolute;
-  z-index: 1;
-  bottom: -5%; /* Adjust this to control tooltip position */
-  left: 50%;
-  margin-left: 2rem;
+  z-index: 100;
+  top: 100%; /* Adjust this to control tooltip position */
+  left: 0%;
+  /* margin-left: 2rem; */
   /* margin-top: -60px; */
   opacity: 0;
   transition: opacity 0.3s;
@@ -251,7 +252,7 @@ section {
 .btn {
   padding: 13px 30px;
   width: 100%;
-  background: #e0dbdb;
+  background: #e0e0e0;
   border-radius: 2rem;
   /* font-size: 18px; */
   color: #333;
@@ -395,9 +396,9 @@ section {
   flex-direction: column;
 }
 .dash-dashsidebar {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
-  background: #fffdfd;
+  background: #fffdfd; */
   /* width: 5rem; */
   /* border-right: 0.1px solid #01b60146; */
   box-shadow: 0 0.1rem 0.4rem rgb(226, 225, 225);
@@ -497,11 +498,9 @@ section {
 .icon {
   transition: all 300ms ease;
 }
-.icon:hover {
+/* .icon:hover {
   color: #000;
-  width: 2.1rem;
-  height: 2.1rem;
-}
+} */
 
 /* Profile Image details */
 

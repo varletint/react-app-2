@@ -51,7 +51,7 @@ export default function PassQuestionsPage() {
           <div className=' search-form-div-items'> */}
       <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
         <div className='bg-[#797777]'></div>
-        <div className=' w-full sticky top-0 z-10 shadow-lg'>
+        <div className=' w-full sticky top-[0.3px] z-10 shadow-lg'>
           <form
             onSubmit
             className=' flex flex-row 
