@@ -87,10 +87,8 @@ export default function DashProfile() {
   };
 
   return (
-    <div
-      className='max-w-lg mx-auto p-3   w-full
-      min-h-screen '>
-      <div className=' '>
+    <div className>
+      <div className=' px-3'>
         <h1
           className='text-center mt-20 font-semibold 
         text-2xl'>

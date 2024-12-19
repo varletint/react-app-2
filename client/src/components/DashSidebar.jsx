@@ -60,11 +60,18 @@ export default function DashSidebar() {
             )}
           </div>
         </Link>
-        <Link>
-          <div className=' tooltip'>
-            <Files01Icon className='w-8 h-8 text-white fill-gray-400 icon' />
-            <span className='tooltiptext'> Posts</span>
-          </div>
+        <Link to={"/dashboard?tab=my-peqies"}>
+          {path == "?tab=my-peqies" ? (
+            <div className=' tooltip'>
+              <Files01Icon className='w-8 h-8 text-white fill-gray-400 icon' />
+              <span className='tooltiptext'> Posts</span>
+            </div>
+          ) : (
+            <div className=' tooltip'>
+              <Files01Icon className='w-8 h-8 text-gray-400 icon' />
+              <span className='tooltiptext'> Posts</span>
+            </div>
+          )}
         </Link>
         <Link>
           <div className=' tooltip'>
