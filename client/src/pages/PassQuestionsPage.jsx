@@ -36,6 +36,7 @@ export default function PassQuestionsPage() {
         const data = await res.json();
 
         if (!res.ok) {
+          setIsLoading(false);
           alert("Bad request");
         }
         if (res.ok) {
