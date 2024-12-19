@@ -38,7 +38,7 @@ export const getpeqs = async (req, res, next) => {
     const sortDirection = req.query.order === "asc" ? 1 : -1;
     const peqs = await Peq.find({
       ...(req.query.userId && { userId: req.query.userId }),
-      ...(req.query.category && { category: req.query.category }),
+      ...(req.query.department && { category: req.query.category }),
       ...(req.query.slug && { slug: req.query.slug }),
       ...(req.query.postId && { _id: req.query.postId }),
       ...(req.query.searchTerm && {

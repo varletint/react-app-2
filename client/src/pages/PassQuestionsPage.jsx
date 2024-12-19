@@ -49,7 +49,7 @@ export default function PassQuestionsPage() {
       }
     };
     fetchPeqies();
-  }, [peqies.peqs]);
+  }, [location.search]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
