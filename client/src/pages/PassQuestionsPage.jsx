@@ -39,10 +39,10 @@ export default function PassQuestionsPage() {
           alert("Bad request");
         }
         if (res.ok) {
-          const timeout = setTimeout(() => {
-            setPeqies(data.peqs);
-            setIsLoading(false);
-          }, 3000);
+          // const timeout = setTimeout(() => {
+          setPeqies(data.peqs);
+          setIsLoading(false);
+          // }, 3000);
         }
       } catch (error) {
         console.log(error.message);
@@ -54,6 +54,7 @@ export default function PassQuestionsPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParam = new URLSearchParams(location.search);
+    console.log(urlParam + " url");
     urlParam.set("searchTerm", searchTerm);
 
     const searchQuery = urlParam.toString();
