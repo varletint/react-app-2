@@ -24,7 +24,7 @@ export default function Dashboard() {
         className=' flex  flex-col
     '>
         <div
-          className=' overflow-hidden  sticky top-0 shadow-sm
+          className='   sticky top-0 shadow-sm
         '>
           <DashSidebar />
         </div>
