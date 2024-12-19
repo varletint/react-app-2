@@ -3,12 +3,19 @@ import QuestionCard from "../components/QuestionCard";
 // import Modal from "../components/Modal";
 import PicturePreviewModal from "../components/PicturePreviewModal";
 import { set } from "mongoose";
+import { useLocation, useNavigate } from "react-router-dom";
 
 export default function PassQuestionsPage() {
   const [peqies, setPeqies] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  console.log(searchTerm);
 
   // console.log(imageUrl);
 
@@ -18,10 +25,14 @@ export default function PassQuestionsPage() {
   };
 
   useEffect(() => {
+    const urlParam = new URLSearchParams(location.search);
+    urlParam.set("searchTerm", searchTerm);
+
     const fetchPeqies = async () => {
       try {
         setIsLoading(true);
-        const res = await fetch("/api/post/getpeqs");
+        const searchQuery = urlParam.toString();
+        const res = await fetch(`/api/post/getpeqs?${searchQuery}`);
         const data = await res.json();
 
         if (!res.ok) {
@@ -33,7 +44,6 @@ export default function PassQuestionsPage() {
             setIsLoading(false);
           }, 3000);
         }
-        clearTimeout(timeout);
       } catch (error) {
         console.log(error.message);
       }
@@ -41,6 +51,14 @@ export default function PassQuestionsPage() {
     fetchPeqies();
   }, [peqies.peqs]);
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParam = new URLSearchParams(location.search);
+    urlParam.set("searchTerm", searchTerm);
+
+    const searchQuery = urlParam.toString();
+    navigate(`/questions?${searchQuery}`);
+  };
   return (
     <>
       <PicturePreviewModal open={isOpen} onClose={() => setIsOpen(false)}>
@@ -59,7 +77,7 @@ export default function PassQuestionsPage() {
         <div className='bg-[#797777]'></div>
         <div className=' w-full sticky top-[0.3px] z-10 shadow-lg'>
           <form
-            onSubmit
+            onSubmit={handleSubmit}
             className=' flex flex-row 
            px-2'>
             <div className=' w-[100%]'>
@@ -73,6 +91,8 @@ export default function PassQuestionsPage() {
                 id='courseCode'
                 placeholder='Search...'
                 className='input-text'
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
               />
             </div>
             <button
