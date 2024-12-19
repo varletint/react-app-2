@@ -50,7 +50,7 @@ export default function DashSidebar() {
                 <UserGroupIcon
                   className={"   w-8 h-8 text-gray-400 fill-gray-400  icon"}
                 />
-                <span className='tooltiptext'>Profile</span>
+                <span className='tooltiptext'>Users</span>
               </>
             ) : (
               <>
