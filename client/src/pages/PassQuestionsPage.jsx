@@ -11,6 +11,7 @@ export default function PassQuestionsPage() {
   const [isOpen, setIsOpen] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
+  const [showMore, setShowMore] = useState(true);
 
   const navigate = useNavigate();
   const location = useLocation();
@@ -61,6 +62,35 @@ export default function PassQuestionsPage() {
     const searchQuery = urlParam.toString();
     navigate(`/questions?${searchQuery}`);
   };
+
+  const handleShowMore = async () => {
+    setIsLoading(true);
+    const numOfPeqies = peqies.length;
+    const startIndex = numOfPeqies;
+    const urlParam = new URLSearchParams(location.search);
+
+    urlParam.set("startIndex", startIndex);
+    const searchQuery = urlParam.toString();
+
+    const res = await fetch(`/api/post/getpeqs?${searchQuery}`);
+
+    if (!res.ok) {
+      setIsLoading(false);
+      alert("failed to retrieve information");
+      return;
+    }
+    if (res.ok) {
+      setIsLoading(false);
+      const data = await res.json();
+      setPeqies([...peqies, ...data.peqs]);
+      if (data.peqs.length === 9) {
+        setShowMore(true);
+      } else {
+        setShowMore(false);
+      }
+    }
+  };
+
   return (
     <>
       <PicturePreviewModal open={isOpen} onClose={() => setIsOpen(false)}>
@@ -77,7 +107,7 @@ export default function PassQuestionsPage() {
           <div className=' search-form-div-items'> */}
       <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
         <div className='bg-[#797777]'></div>
-        <div className=' w-full sticky top-[0.3px] z-10 shadow-lg'>
+        <div className=' w-full sticky top-[0.3px] z-[100] shadow-lg'>
           <form
             onSubmit={handleSubmit}
             className=' flex flex-row 
@@ -133,6 +163,14 @@ export default function PassQuestionsPage() {
                       />
                     ))}
                 </div>
+                {showMore && (
+                  <button
+                    className='text-xl text-teal-400
+                                 hover:underline p-7 w-full text-center'
+                    onClick={handleShowMore}>
+                    Show more
+                  </button>
+                )}
               </div>
             )}
           </div>
