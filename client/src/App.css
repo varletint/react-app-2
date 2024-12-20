@@ -539,6 +539,7 @@ section {
   display: flex;
   align-items: center;
   padding: 8px 10px;
+  transition: all 200ms ease;
 }
 
 .list:hover {
