@@ -25,9 +25,7 @@ export default function DashPeqies() {
       {peqies && peqies.length > 0 ? (
         <ul className='peqies-list'>
           {peqies.map((peq) => (
-            <li className='flex items-center gap-[100px] '>
-              {peq.courseTitle}
-            </li>
+            <li className='list'>{peq.courseTitle}</li>
           ))}
         </ul>
       ) : (
