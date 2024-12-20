@@ -531,7 +531,7 @@ section {
   max-height: 90vh;
   /* background: #f7f5f5; */
   /* list-style-type: decimal; */
-  font-size: 14px;
+  font-size: 12px;
 }
 
 .list {
@@ -545,4 +545,8 @@ section {
 
 .list:hover {
   background: #f7f5f5;
+}
+
+.course-title {
+  font-size: 11px;
 }
