@@ -31,14 +31,16 @@ export default function DashPeqies() {
                 alt={peq.courseTitle}
                 className='w-8 h-8 object-cover'
               />
-              <div className=' flex gap-[4rem]'>
+              <div className=' flex gap-[2rem]'>
                 <div className='flex flex-col w-[120px] '>
                   <div className='title-bold'>
                     <span className='font-medium'> Course TItle: </span>
                   </div>
-                  <span className='course-title'>{peq.courseTitle}</span>
+                  <span className='course-title line-clamp-2'>
+                    {peq.courseTitle}
+                  </span>
                 </div>
-                <div className='flex flex-col justify-normal bg-slate-400'>
+                <div className='flex flex-col justify-normal w-[120px] '>
                   <div className='code-bold'>
                     <span className='font-medium'> Course Code: </span>
                   </div>
