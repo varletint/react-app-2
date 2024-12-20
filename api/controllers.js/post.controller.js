@@ -34,7 +34,7 @@ export const create = async (req, res, next) => {
 export const getpeqs = async (req, res, next) => {
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
-    const limit = parseInt(req.query.limit) || 9;
+    // const limit = parseInt(req.query.limit) || 9;
     const sortDirection = req.query.order === "asc" ? 1 : -1;
     const peqs = await Peq.find({
       ...(req.query.userId && { userId: req.query.userId }),
@@ -49,8 +49,8 @@ export const getpeqs = async (req, res, next) => {
       }),
     })
       .sort({ updatedAt: sortDirection })
-      .skip(startIndex)
-      .limit(limit);
+      .skip(startIndex);
+    // .limit(limit);
 
     const totalPeqs = await Peq.countDocuments();
 

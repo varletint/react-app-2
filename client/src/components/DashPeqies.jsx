@@ -25,7 +25,16 @@ export default function DashPeqies() {
       {peqies && peqies.length > 0 ? (
         <ul className='peqies-list'>
           {peqies.map((peq) => (
-            <li className='list '>{peq.courseTitle}</li>
+            <li className='list '>
+              <img
+                src={peq.image}
+                alt={peq.courseTitle}
+                className='w-8 h-8 object-cover'
+              />
+              <div className='flex flex-col'></div>
+              <span className='font-medium'> Course TItle: </span>{" "}
+              {peq.courseTitle} {peq.courseCode}
+            </li>
           ))}
         </ul>
       ) : (

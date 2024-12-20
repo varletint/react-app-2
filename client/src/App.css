@@ -540,6 +540,7 @@ section {
   align-items: center;
   padding: 8px 10px;
   transition: all 200ms ease;
+  gap: 10px;
 }
 
 .list:hover {
