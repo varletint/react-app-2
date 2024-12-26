@@ -10,6 +10,7 @@ import Footer from "./components/Footer";
 import PassQuestionsPage from "./pages/PassQuestionsPage";
 import Dashboard from "./pages/Dashboard";
 import SignIn from "./pages/SignIn";
+import QuestionsPage from "./pages/QuestionsPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/questions' element={<PassQuestionsPage />} />
+          <Route path='/pass-q' element={<QuestionsPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/sign-in' element={<SignIn />} />
         </Routes>

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import QuestionCard from "../components/QuestionCard";
 // import Modal from "../components/Modal";
 import PicturePreviewModal from "../components/PicturePreviewModal";
@@ -9,21 +9,23 @@ export default function PassQuestionsPage() {
   const [peqies, setPeqies] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
   const [isOpen, setIsOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
   const [showMore, setShowMore] = useState(true);
 
   const navigate = useNavigate();
   const location = useLocation();
+  const observer = useRef();
+  const lastElementRef = useRef(null);
 
   console.log(searchTerm);
 
   // console.log(imageUrl);
 
-  const setAll = () => {
-    setIsOpen(true);
-    setImageUrl(peq.image);
-  };
+  // const setAll = () => {
+  //   setIsOpen(true);
+  //   setImageUrl(peq.image);
+  // };
 
   useEffect(() => {
     const urlParam = new URLSearchParams(location.search);
@@ -65,7 +67,7 @@ export default function PassQuestionsPage() {
 
   const handleShowMore = async () => {
     setIsLoading(true);
-    const numOfPeqies = peqies.length;
+    const numOfPeqies = peqies. length;
     const startIndex = numOfPeqies;
     const urlParam = new URLSearchParams(location.search);
 
@@ -175,50 +177,7 @@ export default function PassQuestionsPage() {
             )}
           </div>
         )}
-        {/* <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
-          {peqies && peqies.length > 0 && (
-            <div className=''>
-              <div className=''>
-                <h1 className='text-center mb-8 font-semibold text-xl'>
-                  Recent pEqs
-                </h1>
-              </div>
-              <div className='questions-grid'>
-                {peqies.length > 0 &&
-                  peqies.map((peq) => (
-                    <QuestionCard
-                      key={peq._id}
-                      peq={peq}
-                      get={() => {
-                        setImageUrl(peq.image), setIsOpen(true);
-                      }}
-                    />
-                  ))}
-              </div>
-            </div>
-          )}
-        </div> */}
       </div>
     </>
-
-    // <div className=' questions-page-container'>
-    //   <div className=' bg-red-500 search-div'>
-    //     <form onSubmit className='search-form-div'>
-    //       <div className=''>
-    //         <label> Department: </label>
-    //         <input type='text' id='Dept' placeholder='Search...' />
-    //       </div>
-    //       <div className=''>
-    //         <label> Course Code </label>
-    //         <input type='text' id='courseCode' placeholder='Search...' />
-    //       </div>
-    //     </form>
-    //   </div>
-    //   <div className='questions-container'>
-    //     <div className='questions-grid'>
-    //       <QuestionCard />
-    //     </div>
-    //   </div>
-    // </div>
   );
 }
