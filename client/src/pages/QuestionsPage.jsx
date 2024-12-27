@@ -26,8 +26,8 @@ export default function QuestionsPage() {
 
   const fechPassQs = async (page = pageRef.current, isFetchingFirstTIme) => {
     try {
-      // isFetchingFirstTIme && setIsLoading(true);
-      // setIsError(false);
+      isFetchingFirstTIme && setIsLoading(true);
+      setIsError(false);
 
       // const res = await fetch(
       //   `/api/post/getpeqs?limit=${limit}&startIndex=${(page - 1) * limit}`
@@ -91,7 +91,7 @@ export default function QuestionsPage() {
 
   useEffect(() => {
     fechPassQs(1, true);
-  }, []);
+  }, [location.search]);
 
   useEffect(() => {
     const ref = spinnerRef.current;
@@ -143,10 +143,17 @@ export default function QuestionsPage() {
   //       }
   //     };
   //   }, [spinnerRef]);
-  console.log(isInteracting);
+  // console.log(isInteracting);
 
-  const handleSubmit = () => {};
-  const handleShowMore = () => {};
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const urlParam = new URLSearchParams(location.search);
+    console.log(urlParam + " url");
+    urlParam.set("searchTerm", searchTerm);
+
+    const searchQuery = urlParam.toString();
+    navigate(`/pass-q?${searchQuery}`);
+  };
 
   return (
     <>
