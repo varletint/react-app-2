@@ -214,7 +214,7 @@ export default function QuestionsPage() {
                     Recent pEqs
                   </h1>
                 </div>
-                <div className='questions-grid'>
+                <div className='questions-grid  '>
                   {peqies.length > 0 &&
                     peqies.map((peq) => (
                       <QuestionCard

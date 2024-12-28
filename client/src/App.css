@@ -282,6 +282,13 @@ section {
   gap: 1rem;
   grid-template-columns: repeat(auto-fit, minmax(8rem, 1fr));
 }
+
+@media (min-width: 400px) {
+  .questions-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
 .question-card {
   aspect-ratio: 1/1;
   border-radius: 1rem;
