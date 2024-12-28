@@ -58,7 +58,6 @@ export default function PassQuestionsPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParam = new URLSearchParams(location.search);
-    console.log(urlParam + " url");
     urlParam.set("searchTerm", searchTerm);
 
     const searchQuery = urlParam.toString();
@@ -67,7 +66,7 @@ export default function PassQuestionsPage() {
 
   const handleShowMore = async () => {
     setIsLoading(true);
-    const numOfPeqies = peqies. length;
+    const numOfPeqies = peqies.length;
     const startIndex = numOfPeqies;
     const urlParam = new URLSearchParams(location.search);
 

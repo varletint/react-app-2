@@ -90,7 +90,7 @@ export default function QuestionsPage() {
   };
 
   useEffect(() => {
-    fechPassQs(1, true);
+    fechPassQs(true);
   }, [location.search]);
 
   useEffect(() => {
@@ -148,7 +148,6 @@ export default function QuestionsPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const urlParam = new URLSearchParams(location.search);
-    console.log(urlParam + " url");
     urlParam.set("searchTerm", searchTerm);
 
     const searchQuery = urlParam.toString();
