@@ -9,6 +9,7 @@ import {
   PlusSignSquareIcon,
   PlusMinus01Icon,
   Message01Icon,
+  Home01Icon,
 } from "hugeicons-react";
 
 import { useLocation } from "react-router-dom";
@@ -18,10 +19,29 @@ export default function DashSidebar() {
   console.log(path);
   return (
     <div
-      className='max-w-lg mx-auto 
+      className='max-w-3xl mx-auto 
        w-full
     shadow-sm'>
       <div className='flex flex-row justify-evenly items-center h-[7vh]'>
+        <Link to={"/home"}>
+          <div className=' tooltip'>
+            {/* <UserCircle02Icon className={"   w-8 h-8 text-gray-400 icon"} />
+            <span className='tooltiptext'>Profile</span> */}
+            {path == "home" ? (
+              <>
+                <Home01Icon
+                  className={"   w-8 h-8 text-white fill-gray-400  icon"}
+                />
+                <span className='tooltiptext'>Profile</span>
+              </>
+            ) : (
+              <>
+                {" "}
+                <Home01Icon className={"   w-8 h-8 text-gray-400  icon"} />
+              </>
+            )}
+          </div>
+        </Link>
         <Link to={"/dashboard?tab=profile"}>
           <div className=' tooltip'>
             {/* <UserCircle02Icon className={"   w-8 h-8 text-gray-400 icon"} />

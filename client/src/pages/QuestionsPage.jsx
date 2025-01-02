@@ -171,7 +171,7 @@ export default function QuestionsPage() {
         <div className=''>
           <DashSidebar />
         </div>
-        <div className='bg-[#fff8f870] bg-blur sticky top-[0px] p-3  h-[5rem] '>
+        {/* <div className='bg-[#fff8f870] bg-blur sticky top-[0px] p-3  h-[5rem] '>
           <div className='  w-full sticky z-[100] shadow-lg'>
             <form
               onSubmit={handleSubmit}
@@ -182,7 +182,7 @@ export default function QuestionsPage() {
             <input type='text' id='Dept' placeholder='Search...' />
           </div>
           <div className='search-form-div-items'>
-            <label> Course Code </label> */}
+            
                 <input
                   type='text'
                   id='courseCode'
@@ -199,7 +199,7 @@ export default function QuestionsPage() {
               </button>
             </form>
           </div>
-        </div>
+        </div> */}
         {isLoading ? (
           <>
             <div

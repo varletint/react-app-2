@@ -18,9 +18,9 @@ function App() {
       <BrowserRouter>
         {/* <Header /> */}
         <Routes>
-          <Route path='/' element={<Home />} />
+          {/* <Route path='/' element={<Home />} /> */}
           <Route path='/questions' element={<PassQuestionsPage />} />
-          <Route path='/pass-q' element={<QuestionsPage />} />
+          <Route path='/' element={<QuestionsPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/sign-in' element={<SignIn />} />
         </Routes>
