@@ -168,7 +168,7 @@ export default function QuestionsPage() {
           <form onSubmit className='search-form-div font-semibold'>
           <div className=' search-form-div-items'> */}
       <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
-        <div className=''>
+        <div className=' h-[4rem] flex justify-center sticky top-[.1px] z-[10] bg-white border-b-2'>
           <DashSidebar />
         </div>
         {/* <div className='bg-[#fff8f870] bg-blur sticky top-[0px] p-3  h-[5rem] '>

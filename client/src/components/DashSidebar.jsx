@@ -16,27 +16,24 @@ import { useLocation } from "react-router-dom";
 
 export default function DashSidebar() {
   const path = useLocation().search;
-  console.log(path);
+  console.log(path + "2ii");
   return (
     <div
-      className='max-w-3xl mx-auto 
+      className='max-w-xl mx-auto 
        w-full
     shadow-sm'>
       <div className='flex flex-row justify-evenly items-center h-[7vh]'>
-        <Link to={"/home"}>
+        <Link to={"/"}>
           <div className=' tooltip'>
             {/* <UserCircle02Icon className={"   w-8 h-8 text-gray-400 icon"} />
             <span className='tooltiptext'>Profile</span> */}
-            {path == "home" ? (
+            {path == "" ? (
               <>
-                <Home01Icon
-                  className={"   w-8 h-8 text-white fill-gray-400  icon"}
-                />
+                <Home01Icon className={"   w-8 h-8 text-black   icon"} />
                 <span className='tooltiptext'>Profile</span>
               </>
             ) : (
               <>
-                {" "}
                 <Home01Icon className={"   w-8 h-8 text-gray-400  icon"} />
               </>
             )}
