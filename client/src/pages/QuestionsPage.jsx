@@ -23,7 +23,9 @@ export default function QuestionsPage() {
   const pageRef = useRef(1);
   const limit = 10;
 
-  const fechPassQs = async (page = pageRef.current, isFetchingFirstTIme) => {
+  const fechPassQs = async (
+    /*page = pageRef.current,*/ isFetchingFirstTIme
+  ) => {
     try {
       isFetchingFirstTIme && setIsLoading(true);
       setIsError(false);
@@ -115,8 +117,9 @@ export default function QuestionsPage() {
 
   useEffect(() => {
     if (isInteracting) {
-      fechPassQs(pageRef.current + 1);
-      pageRef.current = pageRef.current + 1;
+      fechPassQs();
+      // fechPassQs(pageRef.current + 1);
+      // pageRef.current = pageRef.current + 1;
     }
   }, [isInteracting]);
 

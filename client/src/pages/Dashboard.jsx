@@ -19,12 +19,13 @@ export default function Dashboard() {
   }, [location.search]);
 
   return (
-    <div className=' min-h-screen max-w-lg mx-auto  '>
+    <div className=' min-h-screen max-w-lg mx-auto py-3 '>
       <div
         className=' flex  flex-col
     '>
         <div
-          className='   sticky top-0 shadow-sm bg-white
+          className='   h-[4rem] flex justify-center sticky top-[.1px] z-[10]
+        bg-white border-b-2
         '>
           <DashSidebar />
         </div>
