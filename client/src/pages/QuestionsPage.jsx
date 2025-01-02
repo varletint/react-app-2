@@ -1,9 +1,8 @@
 import { useState, useEffect, useRef } from "react";
-import QuestionCard from "../components/QuestionCard";
-// import Modal from "../components/Modal";
-import PicturePreviewModal from "../components/PicturePreviewModal";
-import { set } from "mongoose";
 import { useLocation, useNavigate } from "react-router-dom";
+import QuestionCard from "../components/QuestionCard";
+import PicturePreviewModal from "../components/PicturePreviewModal";
+import DashSidebar from "../components/DashSidebar";
 
 export default function QuestionsPage() {
   const [peqies, setPeqies] = useState([]);
@@ -169,33 +168,37 @@ export default function QuestionsPage() {
           <form onSubmit className='search-form-div font-semibold'>
           <div className=' search-form-div-items'> */}
       <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
-        <div className='bg-[#797777]'></div>
-        <div className=' w-full sticky top-[0.3px] z-[100] shadow-lg'>
-          <form
-            onSubmit={handleSubmit}
-            className=' flex flex-row 
+        <div className=''>
+          <DashSidebar />
+        </div>
+        <div className='bg-[#fff8f870] bg-blur sticky top-[0px] p-3  h-[5rem] '>
+          <div className='  w-full sticky z-[100] shadow-lg'>
+            <form
+              onSubmit={handleSubmit}
+              className=' flex flex-row 
            px-2'>
-            <div className=' w-[100%]'>
-              {/* <label> Department: </label>
+              <div className=' w-[100%]'>
+                {/* <label> Department: </label>
             <input type='text' id='Dept' placeholder='Search...' />
           </div>
           <div className='search-form-div-items'>
             <label> Course Code </label> */}
-              <input
-                type='text'
-                id='courseCode'
-                placeholder='Search...'
-                className='input-text'
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-              />
-            </div>
-            <button
-              className='bg-[#333] w-[100px] text-white font-semibold
+                <input
+                  type='text'
+                  id='courseCode'
+                  placeholder='Search...'
+                  className='input-text'
+                  value={searchTerm}
+                  onChange={(e) => setSearchTerm(e.target.value)}
+                />
+              </div>
+              <button
+                className='bg-[#333] w-[100px] text-white font-semibold
              '>
-              Search
-            </button>
-          </form>
+                Search
+              </button>
+            </form>
+          </div>
         </div>
         {isLoading ? (
           <>
