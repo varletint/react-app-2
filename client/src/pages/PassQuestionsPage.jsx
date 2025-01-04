@@ -109,7 +109,7 @@ export default function PassQuestionsPage() {
       <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
         <div className='bg-[#797777]'></div>
         <div className=' w-full sticky top-[0.3px] z-[100] shadow-lg'>
-          <form
+          {/* <form
             onSubmit={handleSubmit}
             className=' flex flex-row 
            px-2'>
@@ -118,7 +118,7 @@ export default function PassQuestionsPage() {
             <input type='text' id='Dept' placeholder='Search...' />
           </div>
           <div className='search-form-div-items'>
-            <label> Course Code </label> */}
+            <label> Course Code </label> 
               <input
                 type='text'
                 id='courseCode'
@@ -133,7 +133,7 @@ export default function PassQuestionsPage() {
              '>
               Search
             </button>
-          </form>
+          </form> */}
         </div>
         {isLoading ? (
           <>

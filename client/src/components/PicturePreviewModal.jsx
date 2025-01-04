@@ -7,7 +7,7 @@ export default function PicturePreviewModal({ open, children, onClose }) {
   if (!open) return null;
   return ReactDOM.createPortal(
     <div
-      className='fixed bg-[rgba(0,0,0,0.8)] p-2
+      className='fixed bg-[rgb(0,0,0)] 
   top-0 left-0 right-0 bottom-0 flex items-center justify-center z-[100]
    '>
       {" "}
@@ -23,7 +23,7 @@ text-white rounded-md    mb-3       '> */}
         <div
           className=' modal relative
        
-       p-6 rounded-xl'>
+       rounded-xl'>
           <div className='w-full border-b text-right '></div>
           {children}
         </div>
