@@ -3,6 +3,11 @@ import { useLocation, useNavigate } from "react-router-dom";
 import QuestionCard from "../components/QuestionCard";
 import PicturePreviewModal from "../components/PicturePreviewModal";
 import DashSidebar from "../components/DashSidebar";
+import buyMeACoffee from "../assets/images/buycoffee.png";
+import computerImg from "../assets/images/download.jpeg";
+import mathsImg from "../assets/images/maths.jpeg";
+import chemisrtyImg from "../assets/images/chemistry.jpeg";
+import phyImg from "../assets/images/phy1.jpeg";
 
 export default function QuestionsPage() {
   const [peqies, setPeqies] = useState([]);
@@ -212,38 +217,96 @@ export default function QuestionsPage() {
             </div>
           </>
         ) : (
-          <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
-            {peqies && peqies.length > 0 && (
+          <>
+            {/* Support the creator */}
+
+            <div className='mt-[2rem] max-w-3xl mx-auto  p-2 '>
               <div className=''>
                 <div className=''>
-                  <h1 className='text-center mb-8 font-semibold text-xl'>
-                    Recent pEqs
-                  </h1>
+                  <p className=' font-semibold p-2 text-lg'>Support me</p>
                 </div>
-                <div className='questions-grid  '>
-                  {peqies.length > 0 &&
-                    peqies.map((peq) => (
-                      <QuestionCard
-                        key={peq._id}
-                        peq={peq}
-                        get={() => {
-                          setImageUrl(peq.image), setIsOpen(true);
-                        }}
-                      />
-                    ))}
-                </div>{" "}
-                {showMore && (
-                  <div
-                    ref={(el) => {
-                      spinnerRef.current = el;
-                      setIsSpinnerRef((prev) => !prev);
-                    }}>
-                    <p className=' text-center mt-5 text-xl font-mono'>
-                      Loading...
-                    </p>
+                <div className='w-full h-[11rem] sm:h-[15rem] coffee'>
+                  <img
+                    src={buyMeACoffee}
+                    alt='Buy me a Coffee'
+                    className=' w-full h-full object-cover rounded-xl'
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='mt-[2rem] max-w-3xl mx-auto  p-2 '>
+              <div className=' font-semibold p-2'>
+                <p>Departments</p>
+              </div>
+              <div
+                className='scroll w-full h-[11rem] bg-[#f3f3f3] 
+              p-6 box-border items-center flex gap-[10px]
+               justify-start sm:justify-around sm:overflow-x-hidden
+                rounded-xl'>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={computerImg}
+                    alt='Computer science'
+                  />
+                </div>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={mathsImg}
+                    alt='Maths logo'
+                  />
+                </div>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={phyImg}
+                    alt='Physics logo'
+                  />
+                </div>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={chemisrtyImg}
+                    alt='Chemistry image'
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='questions-container min-h-[100vh] mt-3 pr-2 pl-2 mb-8'>
+              {peqies && peqies.length > 0 && (
+                <div className=''>
+                  <div className=''>
+                    <h1 className=' p-2 font-semibold text-lg'>Peqs</h1>
                   </div>
-                )}
-                {/* {showMore && (
+                  <div className='questions-grid  '>
+                    {peqies.length > 0 &&
+                      peqies.map((peq) => (
+                        <QuestionCard
+                          key={peq._id}
+                          peq={peq}
+                          get={() => {
+                            setImageUrl(peq.image), setIsOpen(true);
+                          }}
+                        />
+                      ))}
+                  </div>{" "}
+                  {showMore && (
+                    <div
+                      ref={(el) => {
+                        spinnerRef.current = el;
+                        setIsSpinnerRef((prev) => !prev);
+                      }}>
+                      <p className=' text-center mt-5 text-xl font-mono'>
+                        Loading...
+                      </p>
+                    </div>
+                  )}
+                  {/* {showMore && (
                   <button
                     className='text-xl text-teal-400
                                  hover:underline p-7 w-full text-center'
@@ -251,9 +314,10 @@ export default function QuestionsPage() {
                     Show more
                   </button>
                 )} */}
-              </div>
-            )}
-          </div>
+                </div>
+              )}
+            </div>
+          </>
         )}
       </div>
     </>

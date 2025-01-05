@@ -527,6 +527,56 @@ section {
 .modal {
   animation: topDrop 0.3s linear;
 }
+.coffee {
+  position: relative;
+}
+
+.coffee::after {
+  content: "";
+  width: 100%;
+  height: 70%;
+  position: absolute;
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top, #0000004d 0.1%, transparent);
+}
+.dept-image {
+  border-radius: 0.75rem;
+}
+.scroll-items {
+  cursor: pointer;
+  position: relative;
+}
+.scroll-items::after {
+  content: "";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  border-bottom-right-radius: 0.75rem;
+  border-bottom-left-radius: 0.75rem;
+  left: 0;
+  bottom: 0;
+  background-image: linear-gradient(to top, #0000008e 20%, transparent);
+}
+.scroll {
+  overflow-x: scroll;
+  overflow-y: hidden;
+}
+
+/* .scroll::-webkit-scrollbar {
+  width: 0;
+} */
+
+.scroll-items {
+  width: 120px;
+  height: 130px;
+  flex-shrink: 0;
+  transition: 0.5s;
+  border: none;
+  border-radius: 0.75rem;
+}
 
 @keyframes topDrop {
   0% {

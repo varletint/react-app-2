@@ -4,6 +4,12 @@ import QuestionCard from "../components/QuestionCard";
 import PicturePreviewModal from "../components/PicturePreviewModal";
 import { set } from "mongoose";
 import { useLocation, useNavigate } from "react-router-dom";
+import DashSidebar from "../components/DashSidebar";
+import buyMeACoffee from "../assets/images/buycoffee.png";
+import computerImg from "../assets/images/download.jpeg";
+import mathsImg from "../assets/images/maths.jpeg";
+import chemisrtyImg from "../assets/images/chemistry.jpeg";
+import phyImg from "../assets/images/phy1.jpeg";
 
 export default function PassQuestionsPage() {
   const [peqies, setPeqies] = useState([]);
@@ -106,10 +112,11 @@ export default function PassQuestionsPage() {
       {/* <div className='search-div '>
           <form onSubmit className='search-form-div font-semibold'>
           <div className=' search-form-div-items'> */}
-      <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
+      <div className=' max-w-3xl mx-auto min-h-screen '>
         <div className='bg-[#797777]'></div>
-        <div className=' w-full sticky top-[0.3px] z-[100] shadow-lg'>
-          {/* <form
+        <div className='  w-full sticky top-[0] z-[100]  bg-white border-b-[2px]'>
+          <DashSidebar />
+          {/* <form 
             onSubmit={handleSubmit}
             className=' flex flex-row 
            px-2'>
@@ -144,37 +151,96 @@ export default function PassQuestionsPage() {
             </div>
           </>
         ) : (
-          <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
-            {peqies && peqies.length > 0 && (
+          <>
+            {/* Support the creator */}
+
+            <div className='mt-[2rem] max-w-3xl mx-auto  p-2 '>
               <div className=''>
                 <div className=''>
-                  <h1 className='text-center mb-8 font-semibold text-xl'>
-                    Recent pEqs
-                  </h1>
+                  <p className=' font-semibold p-2 text-lg'>Support me</p>
                 </div>
-                <div className='questions-grid'>
-                  {peqies.length > 0 &&
-                    peqies.map((peq) => (
-                      <QuestionCard
-                        key={peq._id}
-                        peq={peq}
-                        get={() => {
-                          setImageUrl(peq.image), setIsOpen(true);
-                        }}
-                      />
-                    ))}
+                <div className='w-full h-[11rem] sm:h-[15rem] coffee'>
+                  <img
+                    src={buyMeACoffee}
+                    alt='Buy me a Coffee'
+                    className=' w-full h-full object-cover rounded-xl'
+                  />
                 </div>
-                {showMore && (
-                  <button
-                    className='text-xl text-teal-400
-                                 hover:underline p-7 w-full text-center'
-                    onClick={handleShowMore}>
-                    Show more
-                  </button>
-                )}
               </div>
-            )}
-          </div>
+            </div>
+            <div className='mt-[2rem] max-w-3xl mx-auto  p-2 '>
+              <div className=' font-semibold p-2'>
+                <p>Departments</p>
+              </div>
+              <div
+                className='scroll w-full h-[11rem] bg-[#f3f3f3] 
+              p-6 box-border items-center flex gap-[10px]
+               justify-start sm:justify-around sm:overflow-x-hidden
+                rounded-xl'>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={computerImg}
+                    alt='Computer science'
+                  />
+                </div>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={mathsImg}
+                    alt='Maths logo'
+                  />
+                </div>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={phyImg}
+                    alt='Physics logo'
+                  />
+                </div>
+                <div className='scroll-items'>
+                  <img
+                    className='dept-image w-full h-full object-cover relative'
+                    h
+                    src={chemisrtyImg}
+                    alt='Chemistry image'
+                  />
+                </div>
+              </div>
+            </div>
+            <div className='questions-container min-h-[100vh] pt-7 pr-2 pl-2 mb-8'>
+              {peqies && peqies.length > 0 && (
+                <div className=''>
+                  <div className=''>
+                    <h1 className=' p-2 font-semibold text-lg'>Peqs</h1>
+                  </div>
+                  <div className='questions-grid'>
+                    {peqies.length > 0 &&
+                      peqies.map((peq) => (
+                        <QuestionCard
+                          key={peq._id}
+                          peq={peq}
+                          get={() => {
+                            setImageUrl(peq.image), setIsOpen(true);
+                          }}
+                        />
+                      ))}
+                  </div>
+                  {showMore && (
+                    <button
+                      className='text-xl text-teal-400
+                                 hover:underline p-7 w-full text-center'
+                      onClick={handleShowMore}>
+                      Show more
+                    </button>
+                  )}
+                </div>
+              )}
+            </div>
+          </>
         )}
       </div>
     </>

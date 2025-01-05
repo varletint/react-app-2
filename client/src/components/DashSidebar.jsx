@@ -9,7 +9,10 @@ import {
   PlusSignSquareIcon,
   PlusMinus01Icon,
   Message01Icon,
-  Home01Icon,
+  Home11Icon,
+  Search01Icon,
+  SearchCircleIcon,
+  SearchAddIcon,
 } from "hugeicons-react";
 
 import { useLocation } from "react-router-dom";
@@ -19,22 +22,61 @@ export default function DashSidebar() {
   console.log(path + "2ii");
   return (
     <div
-      className='max-w-xl mx-auto 
+      className=' max-w-xl mx-auto 
        w-full
-    shadow-sm'>
-      <div className='flex flex-row justify-evenly items-center h-[7vh]'>
+    '>
+      <div
+        className='flex flex-row sm:gap-[20px] sm:justify-center
+      justify-evenly items-center  h-[7vh]'>
         <Link to={"/"}>
           <div className=' tooltip'>
             {/* <UserCircle02Icon className={"   w-8 h-8 text-gray-400 icon"} />
             <span className='tooltiptext'>Profile</span> */}
             {path == "" ? (
               <>
-                <Home01Icon className={"   w-8 h-8 text-black   icon"} />
+                <Home11Icon
+                  className={"   w-8 h-8 fill-gray-400 text-gray-400   icon"}
+                />
                 <span className='tooltiptext'>Profile</span>
               </>
             ) : (
               <>
-                <Home01Icon className={"   w-8 h-8 text-gray-400  icon"} />
+                <Home11Icon className={"   w-8 h-8 text-gray-400  icon"} />
+              </>
+            )}
+          </div>
+        </Link>
+        <Link to={"/dashboard?tab=my-peqies"}>
+          {path == "?tab=my-peqies" ? (
+            <div className=' tooltip'>
+              <Search01Icon className='w-8 h-8 text-gray-400  icon' />
+              <span className='tooltiptext'> Posts</span>
+            </div>
+          ) : (
+            <div className=' tooltip'>
+              <Search01Icon className='w-8 h-8  text-gray-400 rounded-full icon' />
+              <span className='tooltiptext'> Posts</span>
+            </div>
+          )}
+        </Link>
+
+        <Link to={"/dashboard?tab=profile2"}>
+          <div className=' tooltip'>
+            {path == "?tab=profile2" ? (
+              <>
+                <UserGroupIcon
+                  className='   w-8 h-8 text-gray-400 fill-gray-400  
+                   icon'
+                />
+                <span className='tooltiptext'>Users</span>
+              </>
+            ) : (
+              <>
+                {" "}
+                <UserGroupIcon
+                  className='w-8 h-8 text-gray-400
+                   icon'
+                />
               </>
             )}
           </div>
@@ -46,7 +88,9 @@ export default function DashSidebar() {
             {path == "?tab=profile" ? (
               <>
                 <UserCircle02Icon
-                  className={"   w-8 h-8 text-white fill-gray-400  icon"}
+                  className={
+                    "   w-8 h-8 bg-gray-400 rounded-full text-white fill-gray-400  icon"
+                  }
                 />
                 <span className='tooltiptext'>Profile</span>
               </>
@@ -54,43 +98,15 @@ export default function DashSidebar() {
               <>
                 {" "}
                 <UserCircle02Icon
-                  className={"   w-8 h-8 text-gray-400  icon"}
+                  className='   w-8 h-8 text-gray-400
+                  border-gray-400 border-[2px] icon rounded-full'
                 />
               </>
             )}
           </div>
         </Link>
-        <Link to={"/dashboard?tab=profile2"}>
-          <div className=' tooltip'>
-            {path == "?tab=profile2" ? (
-              <>
-                <UserGroupIcon
-                  className={"   w-8 h-8 text-gray-400 fill-gray-400  icon"}
-                />
-                <span className='tooltiptext'>Users</span>
-              </>
-            ) : (
-              <>
-                {" "}
-                <UserGroupIcon className={"   w-8 h-8 text-gray-400  icon"} />
-              </>
-            )}
-          </div>
-        </Link>
-        <Link to={"/dashboard?tab=my-peqies"}>
-          {path == "?tab=my-peqies" ? (
-            <div className=' tooltip'>
-              <Files01Icon className='w-8 h-8 text-white fill-gray-400 icon' />
-              <span className='tooltiptext'> Posts</span>
-            </div>
-          ) : (
-            <div className=' tooltip'>
-              <Files01Icon className='w-8 h-8 text-gray-400 icon' />
-              <span className='tooltiptext'> Posts</span>
-            </div>
-          )}
-        </Link>
-        <Link>
+
+        {/* <Link>
           <div className=' tooltip'>
             <Message01Icon className='w-8 h-8 text-gray-400 ' />
             <span className='tooltiptext'>Comments</span>
@@ -101,7 +117,7 @@ export default function DashSidebar() {
             <PlusSignSquareIcon className='w-8 h-8 text-white fill-gray-400 icon' />
             <span className='tooltiptext'>Add a Post</span>
           </div>
-        </Link>
+        </Link> */}
       </div>
     </div>
     // <div className='sidebar hidden '>
