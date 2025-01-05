@@ -114,9 +114,8 @@ export default function PassQuestionsPage() {
           <div className=' search-form-div-items'> */}
       <div className=' max-w-3xl mx-auto min-h-screen '>
         <div className='bg-[#797777]'></div>
-        <div className='  w-full sticky top-[0] z-[100]  bg-white border-b-[2px]'>
-          <DashSidebar />
-          {/* <form 
+        <div className=' w-full sticky top-[0.3px] z-[100] shadow-lg'>
+          {/* <form
             onSubmit={handleSubmit}
             className=' flex flex-row 
            px-2'>
@@ -140,7 +139,7 @@ export default function PassQuestionsPage() {
              '>
               Search
             </button>
-          </form> */}
+          </form>*/}
         </div>
         {isLoading ? (
           <>

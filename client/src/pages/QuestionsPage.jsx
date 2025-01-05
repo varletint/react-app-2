@@ -161,6 +161,42 @@ export default function QuestionsPage() {
     navigate(`/pass-q?${searchQuery}`);
   };
 
+  const handleScroll = (e) => {
+    const { scrollTop, scrollHeight, clientHeight } = e.target;
+
+    console.log("scrollTop");
+  };
+
+  const scrollEvent = () => {
+    const body = document.body;
+    console.log(body);
+    let lastScroll = 0;
+
+    window.addEventListener("scroll", () => {
+      const currentScroll = window.scrollY;
+
+      if (currentScroll <= 0) {
+        body.classList.remove("scroll-up");
+      }
+      if (
+        currentScroll > lastScroll &&
+        !body.classList.contains("scroll-down")
+      ) {
+        body.classList.remove("scroll-up");
+        body.classList.add("scroll-down");
+      }
+      if (
+        currentScroll < lastScroll &&
+        body.classList.contains("scroll-down")
+      ) {
+        body.classList.remove("scroll-down");
+        body.classList.add("scroll-up");
+      }
+      lastScroll = currentScroll;
+    });
+  };
+  scrollEvent();
+
   return (
     <>
       <PicturePreviewModal open={isOpen} onClose={() => setIsOpen(false)}>
@@ -175,10 +211,16 @@ export default function QuestionsPage() {
       {/* <div className='search-div '>
           <form onSubmit className='search-form-div font-semibold'>
           <div className=' search-form-div-items'> */}
-      <div className=' max-w-3xl mx-auto min-h-screen   py-3 '>
-        <div className=' h-[4rem] flex justify-center sticky top-[.1px] z-[10] bg-white border-b-2'>
+      <div
+        className=' max-w-3xl mx-auto min-h-screen   py-3 '
+        onScroll={handleScroll}>
+        <header
+          className=' h-[4rem] flex justify-center fixed w-full 
+      transition-all duration-[500ms] ease-out
+      
+         left-0 top-0 z-[10] bg-white border-b-2'>
           <DashSidebar />
-        </div>
+        </header>
         {/* <div className='bg-[#fff8f870] bg-blur sticky top-[0px] p-3  h-[5rem] '>
           <div className='  w-full sticky z-[100] shadow-lg'>
             <form
@@ -238,9 +280,12 @@ export default function QuestionsPage() {
               <div className=' font-semibold p-2'>
                 <p>Departments</p>
               </div>
+              {/* <div
+                className='scroll w-full h-[11rem] bg-[rgb(243,243,243)] 
+              p-6 box-border items-center flex gap-[10px]'> */}
               <div
-                className='scroll w-full h-[11rem] bg-[#f3f3f3] 
-              p-6 box-border items-center flex gap-[10px]
+                className='scroll w-full h-[9.9rem] bg-[#f3f3f3] 
+              p-2 box-border items-center flex gap-[10px]
                justify-start sm:justify-around sm:overflow-x-hidden
                 rounded-xl'>
                 <div className='scroll-items'>

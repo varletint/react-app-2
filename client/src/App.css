@@ -545,6 +545,16 @@ section {
 .dept-image {
   border-radius: 0.75rem;
 }
+/* Scroll Event */
+
+.scroll-down header {
+  transform: translate3d(0, -100%, 0);
+}
+
+.scroll-up header {
+  filter: drop-shadow(0 1px 1px rgb(0 0 0 / 0.05));
+}
+
 .scroll-items {
   cursor: pointer;
   position: relative;

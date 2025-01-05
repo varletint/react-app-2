@@ -19,7 +19,6 @@ import { useLocation } from "react-router-dom";
 
 export default function DashSidebar() {
   const path = useLocation().search;
-  console.log(path + "2ii");
   return (
     <div
       className=' max-w-xl mx-auto 
@@ -35,13 +34,13 @@ export default function DashSidebar() {
             {path == "" ? (
               <>
                 <Home11Icon
-                  className={"   w-8 h-8 fill-gray-400 text-gray-400   icon"}
+                  className={"   w-6 h-6 fill-gray-400 text-gray-400   icon"}
                 />
                 <span className='tooltiptext'>Profile</span>
               </>
             ) : (
               <>
-                <Home11Icon className={"   w-8 h-8 text-gray-400  icon"} />
+                <Home11Icon className={"   w-6 h-6 text-gray-400  icon"} />
               </>
             )}
           </div>
@@ -49,12 +48,13 @@ export default function DashSidebar() {
         <Link to={"/dashboard?tab=my-peqies"}>
           {path == "?tab=my-peqies" ? (
             <div className=' tooltip'>
-              <Search01Icon className='w-8 h-8 text-gray-400  icon' />
+              <Search01Icon className='w-6 h-6 text-gray-400  icon' />
               <span className='tooltiptext'> Posts</span>
             </div>
           ) : (
             <div className=' tooltip'>
-              <Search01Icon className='w-8 h-8  text-gray-400 rounded-full icon' />
+              <Search01Icon className='w-6 h-6  text-gray-400 rounded-full icon' />
+
               <span className='tooltiptext'> Posts</span>
             </div>
           )}
@@ -97,10 +97,7 @@ export default function DashSidebar() {
             ) : (
               <>
                 {" "}
-                <UserCircle02Icon
-                  className='   w-8 h-8 text-gray-400
-                  border-gray-400 border-[2px] icon rounded-full'
-                />
+                <UserCircle02Icon className='   w-6 h-6 text-gray-400 border-gray-400 border-[2px] icon rounded-full' />
               </>
             )}
           </div>
