@@ -216,7 +216,7 @@ export default function QuestionsPage() {
         onScroll={handleScroll}>
         <header
           className=' h-[4rem] flex justify-center fixed w-full 
-      transition-all duration-[500ms] ease-out
+      transition-all duration-[500ms] ease-out items-center
       
          left-0 top-0 z-[10] bg-white border-b-2'>
           <DashSidebar />
