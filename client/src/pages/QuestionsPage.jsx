@@ -216,9 +216,8 @@ export default function QuestionsPage() {
         onScroll={handleScroll}>
         <header
           className=' h-[4rem] flex justify-center fixed w-full 
-      transition-all duration-[500ms] ease-out items-center
-      
-         left-0 top-0 z-[10] bg-white border-b-2'>
+      transition-all duration-[500ms] ease-out items-center left-0
+      top-0 z-[10] bg-white '>
           <DashSidebar />
         </header>
         {/* <div className='bg-[#fff8f870] bg-blur sticky top-[0px] p-3  h-[5rem] '>
@@ -262,12 +261,12 @@ export default function QuestionsPage() {
           <>
             {/* Support the creator */}
 
-            <div className='mt-[2rem] max-w-3xl mx-auto  p-2 '>
+            <div className='mt-[5rem] max-w-3xl mx-auto  p-2 '>
               <div className=''>
                 <div className=''>
                   <p className=' font-semibold p-2 text-lg'>Support me</p>
                 </div>
-                <div className='w-full h-[11rem] sm:h-[15rem] coffee'>
+                <div className='w-full h-[11rem] sm:h-[15rem coffee'>
                   <img
                     src={buyMeACoffee}
                     alt='Buy me a Coffee'
