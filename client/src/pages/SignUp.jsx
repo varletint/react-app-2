@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SignIn() {
+export default function SignUp() {
   return (
     <div className=' min-h-screen flex justify-center mt-10 md:mt-0 md:items-center  '>
       <div
@@ -37,9 +37,9 @@ export default function SignIn() {
             </div>
             <button className='btn hover:bg-black'> Sign In</button>
             <p className='text-center text-sm '>
-              Want to become a Peqie, Sign up
+              Already have an account, Sign in
               <span className=' text-blue-700'>
-                <a href='/sign-up' className='  ml-1'>
+                <a href='/' className='  ml-1'>
                   here
                 </a>
               </span>

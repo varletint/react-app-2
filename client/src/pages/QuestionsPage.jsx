@@ -261,7 +261,7 @@ export default function QuestionsPage() {
           <>
             {/* Support the creator */}
 
-            <div className='mt-[5rem] max-w-3xl mx-auto  p-2 '>
+            <div className='mt-[8rem] max-w-3xl mx-auto  p-2 '>
               <div className=''>
                 <div className=''>
                   <p className=' font-semibold p-2 text-lg'>Support me</p>

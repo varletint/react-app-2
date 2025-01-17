@@ -11,6 +11,7 @@ import PassQuestionsPage from "./pages/PassQuestionsPage";
 import Dashboard from "./pages/Dashboard";
 import SignIn from "./pages/SignIn";
 import QuestionsPage from "./pages/QuestionsPage";
+import SignUp from "./pages/SignUp";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path='/' element={<QuestionsPage />} />
           <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/sign-in' element={<SignIn />} />
+          <Route path='/sign-up' element={<SignUp />} />
         </Routes>
         {/* <Footer /> */}
       </BrowserRouter>
