@@ -9,6 +9,7 @@ import path from "path";
 
 // Importing local Routes
 import postRoutes from "./routes/post.route.js";
+import authRoutes from "./routes/auth.route.js";
 
 // setting app = express
 const app = express();
@@ -45,7 +46,10 @@ mongoose
 app.listen(3030, () => {
   console.log("The server is running at port 3030");
 });
+
+// Routes
 app.use("/api/post", postRoutes);
+app.use("/api/auth", authRoutes);
 
 const __dirname = path.resolve();
 
