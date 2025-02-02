@@ -15,7 +15,7 @@ const UserScheme = new mongoose.Schema(
       type: String,
       required: true,
     },
-    isPeqie: {
+    isPeqer: {
       type: Boolean,
       default: false,
     },

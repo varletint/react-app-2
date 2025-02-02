@@ -1,6 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
 
 export default function SignIn() {
+  const [errorMessage, setErrorMessage] = useState(null);
+  const [formData, setFormData] = useState({});
+
+  // handle the user's inputs
+  const loadFormaData = (e) => {
+    setFormData({ ...formData, [e.target.id]: e.target.value.trim() });
+  };
+
+  // handle the submit function
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    if (
+      !formData.email ||
+      !formData.password ||
+      formData.email === "" ||
+      formData.password
+    ) {
+      setErrorMessage("Please fill out the fields");
+    }
+
+    try {
+    } catch (error) {}
+  };
   return (
     <div className=' min-h-screen flex justify-center mt-10 md:mt-0 md:items-center  '>
       <div
@@ -18,13 +42,16 @@ export default function SignIn() {
               pEq
             </h1>
           </div>
-          <form className=' flex-1 flex flex-col gap-7 '>
+          <form
+            className=' flex-1 flex flex-col gap-7 '
+            onSubmit={handleSubmit}>
             <div className='flex flex-col gap-2'>
-              <label>Username</label>
+              <label>Email</label>
               <input
-                type='text'
+                type='email'
                 placeholder='username'
                 className='input-text'
+                onChange={loadFormaData}
               />
             </div>
             <div className='flex flex-col gap-2'>
@@ -33,6 +60,7 @@ export default function SignIn() {
                 type='text'
                 placeholder='password'
                 className='input-text'
+                onChange={loadFormaData}
               />
             </div>
             <button className='btn hover:bg-black'> Sign In</button>
