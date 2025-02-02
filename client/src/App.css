@@ -553,7 +553,7 @@ section {
 }
 
 header {
-  filter: drop-shadow(0px -10px 30px rgb(200, 200, 200));
+  filter: drop-shadow(0px -10px 10px rgb(170, 170, 170));
 }
 .scroll-up header {
   filter: drop-shadow(0 -10px 20px rgb(170, 170, 170));
