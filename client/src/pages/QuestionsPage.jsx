@@ -13,6 +13,7 @@ export default function QuestionsPage() {
   const [peqies, setPeqies] = useState([]);
   const [imageUrl, setImageUrl] = useState("");
   const [isOpen, setIsOpen] = useState(false);
+  const [modal, setModal] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isError, setIsError] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
@@ -206,6 +207,13 @@ export default function QuestionsPage() {
           )}
         </div>
       </PicturePreviewModal>
+      <div className={`current-modal ${modal} items-center flex`}>
+        {/* <div className=' mx-auto max-w-3xl '>
+          {imageUrl && (
+            <img src={imageUrl} alt='' className=' img-popup w-full h-[100%]' />
+          )}
+        </div> */}
+      </div>
       {/* <div className=' questions-page-container bg-white'>
         <div className='bg-[#797777]'></div> */}
       {/* <div className='search-div '>
@@ -334,7 +342,7 @@ export default function QuestionsPage() {
                           key={peq._id}
                           peq={peq}
                           get={() => {
-                            setImageUrl(peq.image), setIsOpen(true);
+                            setImageUrl(peq.image), setModal("active");
                           }}
                         />
                       ))}

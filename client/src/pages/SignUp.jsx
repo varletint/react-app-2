@@ -94,7 +94,7 @@ export default function SignUp() {
             <p className='text-center text-sm '>
               Already have an account, Sign in
               <span className=' text-blue-700'>
-                <a href='/' className='  ml-1'>
+                <a href='/sign-in' className='  ml-1'>
                   here
                 </a>
               </span>

@@ -627,3 +627,24 @@ header {
 .course-title {
   font-size: 11px;
 }
+
+/* .current-modal {
+  position: fixed;
+  display: block; */
+/* background: #680c25;
+  
+  background-color: #ff0000;
+  min-height: 100vh;
+  top: 0;
+  left: 100%;
+  bottom: 100%;
+  width: 100%;
+  padding: 0 0.78rem;
+  transition: 0.5s;
+  z-index: 999;
+}
+
+.current-modal.active {
+  left: 0;
+  bottom: 0;
+} */

@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import SignIn from "./pages/SignIn";
 import QuestionsPage from "./pages/QuestionsPage";
 import SignUp from "./pages/SignUp";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -22,8 +23,10 @@ function App() {
           {/* <Route path='/' element={<Home />} /> */}
           <Route path='/questions' element={<PassQuestionsPage />} />
           <Route path='/' element={<QuestionsPage />} />
-          <Route path='/dashboard' element={<Dashboard />} />
           <Route path='/sign-in' element={<SignIn />} />
+          <Route element={<PrivateRoute />}>
+            <Route path='/dashboard' element={<Dashboard />} />
+          </Route>
           <Route path='/sign-up' element={<SignUp />} />
         </Routes>
         {/* <Footer /> */}

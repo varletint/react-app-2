@@ -1,8 +1,18 @@
-import React, { useState } from "react";
+import { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  signInStart,
+  signInSuccess,
+  signInFailure,
+} from "../redux/user/userSlice";
 
 export default function SignIn() {
   const [errorMessage, setErrorMessage] = useState(null);
   const [formData, setFormData] = useState({});
+  // const { error: errorMessage } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
+
+  console.log(formData);
 
   // handle the user's inputs
   const loadFormaData = (e) => {
@@ -10,20 +20,34 @@ export default function SignIn() {
   };
 
   // handle the submit function
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    if (
-      !formData.email ||
-      !formData.password ||
-      formData.email === "" ||
-      formData.password
-    ) {
+    if (!formData.email || !formData.password) {
       setErrorMessage("Please fill out the fields");
     }
 
     try {
-    } catch (error) {}
+      dispatch(signInStart());
+      // making a fetch request and waiting for response
+      const response = await fetch("/api/auth/signin", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+      const data = await response.json();
+      if (data.success === false) {
+        return dispatch(signInFailure(data.message));
+      }
+      if (response.ok) {
+        dispatch(signInSuccess(data));
+        navigate("/");
+      }
+    } catch (error) {
+      dispatch(signInFailure(error.message));
+    }
   };
   return (
     <div className=' min-h-screen flex justify-center mt-10 md:mt-0 md:items-center  '>
@@ -49,8 +73,9 @@ export default function SignIn() {
               <label>Email</label>
               <input
                 type='email'
-                placeholder='username'
+                placeholder='email'
                 className='input-text'
+                id='email'
                 onChange={loadFormaData}
               />
             </div>
@@ -60,6 +85,7 @@ export default function SignIn() {
                 type='text'
                 placeholder='password'
                 className='input-text'
+                id='password'
                 onChange={loadFormaData}
               />
             </div>
