@@ -41,7 +41,9 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-
+app.get("/api", (req, res) => {
+  res.send("Hello World!");
+});
 //   Server connection
 app.listen(3030, () => {
   console.log("The server is running at port 3030");
