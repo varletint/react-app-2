@@ -44,7 +44,7 @@ mongoose
     console.log(err);
   });
 app.get("/api", async (req, res, next) => {
-  res.send("Hello World!");
+  // res.send("Hello World!");
 
   try {
     const startIndex = parseInt(req.query.startIndex) || 0;
