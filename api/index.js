@@ -43,7 +43,7 @@ mongoose
   .catch((err) => {
     console.log(err);
   });
-app.get("/api/post/getpeqs", async (req, res, next) => {
+app.get("/api/get", async (req, res, next) => {
   // res.send("Hello World!");
 
   try {
